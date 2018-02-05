@@ -1,0 +1,124 @@
+	   <div class="row">
+			<aside class="col-md-3">
+				<br>
+				<img src="img/photo_face1.jpg" width="70%" height="70%" valign="middle">   				
+				<h4>Jongkuk Lee</h4>
+				<p>Java / Web Developer</p>
+				<p><a href="mailto:jongkuk.jay.lee@gmail.com">jongkuk.jay.lee@gmail.com</a></p>
+			</aside>
+			<section class="main col-md-9">
+				<article>
+<div class="row"> 
+    <div class="col-md-12"> 
+        <h3>Pelase, leave a Comment!</h3> 
+        <div class="well"> 
+            <div class="row"> 
+                <div class="col-md-12"> 
+					<form action="/about/addComment" method="POST">
+						<div class="well">
+							<div class="row">
+								<div class="col-md-6">
+									<input type="text" class="form-control" placeholder="Name" name="authorName" />
+									<br />
+								</div>
+								<div class="col-md-6">
+
+									<input type="email" class="form-control" placeholder="Email" name="authorEmail" />
+									<br />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<input type="text" class="form-control" placeholder="Subject" name="subject" />
+									<br />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<textarea class="form-control" rows="8" placeholder="Comment" name="commentText"></textarea>
+									<br />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-2 col-md-offset-10">
+									<button type="submit"class="btn btn-primary form-control">Comment</button>
+								</div>
+							</div>
+						</div>
+					</form> 
+                </div> 
+            </div> 
+        </div> 
+    </div> 
+</div> 
+ 
+{{#if data}} 
+<div class="row"> 
+    <div class="col-md-12"> 
+        <h3>All Comments</h3> 
+        <hr /> 
+    </div> 
+</div> {{/if}} 
+ 
+{{#each data}} 
+<div class="row"> 
+    <div class="col-md-12"> 
+		<h4>{{subject}}</h4>		
+        <div class="well"> 
+            <div class="row"> 
+                <div class="col-md-12"> 
+                    {{commentText}}<br /><br /> 
+					Posted on: {{postedDate}} <a href="mailto:{{authorEmail}}">{{authorName}}</a> 
+                </div> 
+            </div> 
+            {{#each replies}} 
+            <div class="row"> 
+                <div class="col-md-12">
+					<div class="well"> 
+						{{commentText}}<br /><br />
+						Posted on: {{repliedDate}} <a href="mailto:{{authorEmail}}">{{authorName}}</a> 
+					</div>
+                </div> 
+            </div>
+            {{/each}} 
+            <div class="row"> 
+                <div class="col-md-12"> 
+                    <button class="btn btn-primary btn-sm pull-right" data-toggle="collapse" data-target="#reply-{{_id}}" aria-expanded="false">Reply</button> 
+                </div> 
+            </div> 
+        </div> 
+		<div class="collapse" id="reply-{{_id}}">
+			<form action="/about/addReply" method="POST">
+				<div class="well">
+					<div class="row">
+						<div class="col-md-6">
+							<input type="text" class="form-control" placeholder="Name" name="authorName" />
+							<br />
+						</div>
+						<div class="col-md-6">
+
+							<input type="email" class="form-control" placeholder="Email" name="authorEmail" />
+							<br />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<textarea class="form-control" rows="8" placeholder="Comment" name="commentText"></textarea>
+							<br />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-2 col-md-offset-10">
+							<input type="hidden" value="{{_id}}" name="comment_id" />
+							<button type="submit" class="btn btn-primary form-control">Reply</button>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+    </div> 
+</div> 
+{{/each}}  
+				</article>
+			</section>
+		</div>

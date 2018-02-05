@@ -1,0 +1,57 @@
+<!doctype	html>	
+<html>	
+    <head>	
+        <title>WEB322 App</title>	
+        <link rel="stylesheet" href="/css/site.css" type="text/css"	/>	
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" />
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script> 
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </head>
+<body>
+	<header>
+        <div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<h2>Employee Management System</h2>
+				</div>
+				<div class="col-md-6">
+                    {{#if session.user.username}}
+                        <span class="pull-right"><a href="/logout" class="btn btn-primary">&nbsp;&nbsp;&nbsp;Log Out:user&nbsp;&nbsp;&nbsp;</a></span>
+                    {{else}}
+                        <span class="pull-right"><a class="btn btn-success" href="/login">&nbsp;&nbsp;&nbsp;Login&nbsp;&nbsp;&nbsp;</a> <a class="btn btn-primary" href="/register">&nbsp;&nbsp;&nbsp;Register&nbsp;&nbsp;&nbsp;</a></span> 
+                    {{/if}}
+                </div>
+			</div>
+		</div>
+      </header>
+     <nav>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">         
+                    <ul class="pull-left">
+                        <li> <a href="/"> Home </a> </li>
+                        <li> <a href="/about"> Comments </a> </li>
+                    </ul>
+                    {{#if session.user.username}}
+                        <ul class="pull-right">
+                            <li> <a href="/employees"> All Employees </a> </li>
+                            <li> <a href="/managers"> Managers </a> </li>
+                            <li> <a href="/departments"> Departments </a> </li>
+                        </ul>
+                    {{/if}}
+				</div>
+			</div>
+		</div>
+	</nav>
+    <div class="container">{{{body}}}</div>    
+    <footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+                <h2>© 2017 - JAY Inc. 50 Disera Dr, Toronto, Thornhill, ON L4J9E9</h2>
+				</div>
+			</div>
+		</div>
+   </footer>
+</body>
+</html>	
