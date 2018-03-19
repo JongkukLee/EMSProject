@@ -13,3 +13,7 @@ Demo Url: https://agile-mesa-17096.herokuapp.com/
 -	Built/Deployed application on Cloud platform (Heroku) (Demo Url: https://agile-mesa-17096.herokuapp.com/)
 
 • **Other key skills:** JQuery/AJAX/JSON/Client-session.js/Bootstrap/JavaScript/HTML/CSS
+
+• **How to use:**
+![ems1](https://user-images.githubusercontent.com/29003115/37581731-388d80de-2b20-11e8-8255-4f3333e47301.jpg)
+
